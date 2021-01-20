@@ -13,7 +13,7 @@ public class FareCalculator extends Booking{
 			if(hotel.getNoOfPersons()==1 && hotel.getOccupancy().equals("single")) {
 				return booking(hotel.getNoOfPersons(),hotel.getRates());
 			}
-			else if(hotel.getNoOfPersons()==3 && hotel.getOccupancy().equals("double")) {
+			else if(hotel.getNoOfPersons()>=2 && hotel.getOccupancy().equals("double")) {
 				return booking(hotel.getNoOfPersons(),hotel.getRates());
 			}
 		}

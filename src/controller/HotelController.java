@@ -52,8 +52,11 @@ public class HotelController extends HttpServlet {
 		System.out.println(roomtype);
 		System.out.println(rates);
 		System.out.println(occupancy);
-    
 		Hotel hotel=new Hotel(numberOfPersons,roomtype,rates,occupancy,fromDate,toDate);
+		if(!(hotel.getFromdate().isBefore(hotel.getTodate()))){
+			System.out.println("enter correct dates");
+			}
+		else {
 		
 		hotel.setNoOfPersons(numberOfPersons);
 		hotel.setRates(rates);
@@ -68,7 +71,7 @@ public class HotelController extends HttpServlet {
 		request.setAttribute("hotelfare", rate);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/hotelOutputView.jsp");
 		dispatcher.forward(request, response);
-	
+		}
 	}
 	
 }

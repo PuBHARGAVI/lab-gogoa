@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.jasper.tagplugins.jstl.core.Out;
 
-import com.sun.deploy.net.URLEncoder;
-
 import model.Flight;
 import services.FareCalculator;
 
@@ -52,28 +50,19 @@ public class FlightController extends HttpServlet {
 		}
 		LocalDate start=LocalDate.parse(from);		
 		LocalDate end;
-		if(to.equals("")) {
-			System.out.println("hi");
-			end=null;
-		}
-		else {
-			System.out.println("hi1");
-			end=LocalDate.parse(to);
-		}
-	
+		end=LocalDate.parse(to);
 		System.out.println(triptype);
 		Flight flight=new Flight(numberOfPersons,rates,classtype,start,end,triptype);
-
 		flight.setNoOfPersons(numberOfPersons);
 		flight.setRates(rates);
 		flight.setClassType(classtype);
 		flight.setFrom(start);
 		flight.setTo(end);
 		String msg="";
-		if(!(flight.getFrom().isBefore(flight.getTo()))) {
+		if(flight.getTriptype().equals("round-trip") && !(flight.getFrom().isBefore(flight.getTo()))) {
 			System.out.println("enter correct dates");
 			}
-		else{
+		else if((flight.getTriptype().equals("round-trip") && !(flight.getFrom().isBefore(flight.getTo())))||(flight.getTriptype().equals("one-way"))){
 		FareCalculator fare=new FareCalculator();
 		double rate=fare.book(flight);
 		request.setAttribute("flight", flight);

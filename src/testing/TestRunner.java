@@ -1,10 +1,12 @@
 package testing;
 
-/* Uncomment the below code to test your application
+//Uncomment the below code to test your application
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
+
+import junit.framework.TestSuite;
 
 public class TestRunner {
 	public static void main(String[] args) {
@@ -17,4 +19,3 @@ public class TestRunner {
 		System.out.println(result.wasSuccessful());
 	}
 }
-*/

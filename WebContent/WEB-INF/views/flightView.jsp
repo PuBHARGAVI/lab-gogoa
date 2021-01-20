@@ -12,9 +12,8 @@
 <img class="logo" src="./assets/logo.svg"></img>
 </header>
 <section class="result">
-
+${param.msg}
 <table>
-
 <tr>
 <td>TRIP TYPE</td>
 <td> ${flight.getTriptype()}</td>

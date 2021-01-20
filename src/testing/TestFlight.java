@@ -1,6 +1,6 @@
 package testing;
 
-/* Uncomment the below code to test your application
+//Uncomment the below code to test your application
 
 import model.Flight;
 import java.time.LocalDate;
@@ -62,4 +62,3 @@ public class TestFlight {
 	}
 }
 
-*/
